@@ -22,7 +22,7 @@ function App() {
       <header className="App-header">
         <img src={apocabotLogo} className="App-logo" alt="logo" />
         <p>
-          Create a New Custom Move below:
+          Create a New Custom Move below: (Leah rules)
         </p>
         {fields.map(x =>
           <div>
