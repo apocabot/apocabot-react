@@ -5,7 +5,8 @@ import './App.css';
 
 function App() {
 
-  const fields = ['name', 'command', 'roll', 'text', 'success', 'mixed', 'fail']
+  const textInputs = ['name', 'command', 'roll']
+  const textAreas = ['text', 'success', 'mixed', 'fail']
   const [customMove, setCustomMove] = useState(
     {
       name: "",
@@ -22,10 +23,10 @@ function App() {
       <header className="App-header">
         <img src={apocabotLogo} className="App-logo" alt="logo" />
         <p>
-          Create a New Custom Move below: (Leah rules)
+          Create a New Custom Move below:
         </p>
-        {fields.map(x =>
-          <div>
+        {textInputs.map(x =>
+          <Inputs>
             <Label>{x + ":"}</Label>
             <input
               value={customMove[x]}
@@ -33,7 +34,18 @@ function App() {
               onChange={e =>
                 setCustomMove({ ...customMove, [e.target.name]: e.target.value })}>
             </input>
-          </div>
+          </Inputs>
+        )}
+        {textAreas.map(x =>
+          <Inputs>
+            <Label>{x + ":"}</Label>
+            <textarea
+              value={customMove[x]}
+              name={x}
+              onChange={e =>
+                setCustomMove({ ...customMove, [e.target.name]: e.target.value })}>
+            </textarea>
+          </Inputs>
         )}
         <button onClick={() =>  navigator.clipboard.writeText(
           `!newmove name+"${customMove.name}" command+"${customMove.command}" roll+"${customMove.roll}" text+"${customMove.text}" success+"${customMove.success}" mixed+"${customMove.mixed}" fail+"${customMove.fail}"`
@@ -56,5 +68,11 @@ function App() {
 export default App;
 
 const Label = styled.label`
-  margin-right: 10px
+  margin-right: 10px;
+  margin-top: -10px;
+`
+const Inputs = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 `
