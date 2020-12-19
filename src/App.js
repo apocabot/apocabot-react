@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import apocabotLogo from './apocabot-logo.png'
 import styled from 'styled-components'
+import Header from './header'
+import GameSelect from './game-select'
 import './App.css';
 
 function App() {
 
-  const textInputs = ['name', 'command', 'roll']
+  const textInputs = ['name', 'command']
   const textAreas = ['text', 'success', 'mixed', 'fail']
+  const gameList = ["Apocalypse World", "Burned Over", "Dungeon World", "Masks", "Monsterhearts 2", "MotW", "The Sprawl", "The Veil", "Uncharted Worlds", "Urban Shadows"]
+  const [selectedGame, setSelectedGame] = useState("")
   const [customMove, setCustomMove] = useState(
     {
       name: "",
@@ -18,13 +21,26 @@ function App() {
       fail: ""
     })
 
+    const game = gameList.find(g => g.name === selectedGame)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={apocabotLogo} className="App-logo" alt="logo" />
+      <Header/>
+      <GameSelect />
         <p>
           Create a New Custom Move below:
         </p>
+        <div>
+          Choose your PbtA game:
+          <select onChange={e=>setSelectedGame(e.target.value)}>
+          <option disabled selected value>  -- select game --  </option>
+            {gameList.map(x => 
+              <option 
+              value={x}>{x}</option>
+              )}
+          </select>
+          <div>you chose {selectedGame}</div>
+        </div>
         {textInputs.map(x =>
           <Inputs>
             <Label>{x + ":"}</Label>
@@ -47,10 +63,10 @@ function App() {
             </textarea>
           </Inputs>
         )}
-        <button onClick={() =>  navigator.clipboard.writeText(
+        <button onClick={() => navigator.clipboard.writeText(
           `!newmove name+"${customMove.name}" command+"${customMove.command}" roll+"${customMove.roll}" text+"${customMove.text}" success+"${customMove.success}" mixed+"${customMove.mixed}" fail+"${customMove.fail}"`
-          )}>
-            Copy Move to Clipboard
+        )}>
+          Copy Move to Clipboard
         </button>
         <a
           className="App-link"
@@ -60,7 +76,6 @@ function App() {
         >
           Go to our Patreon
         </a>
-      </header>
     </div>
   );
 }
