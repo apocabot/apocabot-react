@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import {apocabotLogo} from './images'
+import React from 'react'
 import styled from 'styled-components'
 
 export default function GameSelect() {

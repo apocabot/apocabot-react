@@ -21,7 +21,7 @@ function App() {
       fail: ""
     })
 
-    const game = gameList.find(g => g.name === selectedGame)
+    // const game = gameList.find(g => g.name === selectedGame)
 
   return (
     <div className="App">
