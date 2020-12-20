@@ -56,3 +56,13 @@
 //         )}>
 //           Copy Move to Clipboard
 //         </button>
+
+// const Label = styled.label`
+//   margin-right: 10px;
+//   margin-top: -10px;
+// `
+// const Inputs = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: flex-start;
+// `

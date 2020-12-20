@@ -1,7 +1,7 @@
 import React from 'react'
 import { apocabotLogo } from '../images'
 import styled from 'styled-components'
-import {gameData} from '../data/game-data'
+// import {gameData} from '../data/game-data'
 
 export default function Header() {
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {gameData} from '../data/game-data'
+// import {gameData} from '../data/game-data'
 
 export default function Footer(){
 
