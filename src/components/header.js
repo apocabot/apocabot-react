@@ -27,13 +27,15 @@ const Wrapper = styled.div`
     margin-bottom: 20px;
     padding: 20px;
     width: 100%;
+    flex-flow: wrap;
 `
 
 const Logo = styled.img`
     background-image: url(${apocabotLogo});
+    background-repeat: no-repeat;
     background-size: 100%;
-    height: 200px;
-    width: 200px;
+    padding-bottom:20%;
+    width: 20%;
     margin-right: 50px;
     margin-left: 50px;
 `
