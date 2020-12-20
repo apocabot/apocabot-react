@@ -1,11 +1,12 @@
 import React from 'react'
 import { apocabotLogo } from '../images'
 import styled from 'styled-components'
+import { theme } from '../theme'
 // import {gameData} from '../data/game-data'
 
 export default function Header() {
 
-    return <Wrapper>
+    return <Wrapper color={theme.darkerGrey}>
         <Text>
             <Title>
                 ApocaBot:
@@ -15,7 +16,10 @@ export default function Header() {
             </Description>
         </Text>
         <Logo />
-        <Info>jkdfs kjldsjk dsjk ldjk ldkjl dkjl dfkjldfskj ldsfjk dsf jkdsf jk</Info>
+        <Info>
+            <p>Click on a game to access ApocaBot Helper</p>
+            <p>The helper lets you input Character Info or Custom Moves</p>
+            </Info>
     </Wrapper>
 }
 
@@ -28,6 +32,7 @@ const Wrapper = styled.div`
     padding: 20px;
     width: 100%;
     flex-flow: wrap;
+    background-color: ${p=>p.color};
 `
 
 const Logo = styled.img`
@@ -58,4 +63,5 @@ const Description = styled.div`
 
 const Info = styled.div`
     width: 33%;
+    font-size: 16px;
 `
